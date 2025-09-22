@@ -7,7 +7,8 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { BaseException, PROBLEM_TYPES } from '../types';
+import { BaseException } from '../exceptions/base.exception';
+import { PROBLEM_TYPES } from '../types';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {

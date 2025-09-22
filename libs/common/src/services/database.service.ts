@@ -4,7 +4,7 @@ import {
   DatabaseConnectionException,
   DatabaseQueryException,
   DatabaseTransactionException,
-} from './exceptions/database.exception';
+} from '../exceptions/database.exception';
 
 @Injectable()
 export class DatabaseService {
@@ -43,7 +43,7 @@ export class DatabaseService {
   ): Promise<T> {
     try {
       const db = await this.getConnection();
-      return await db.transaction(async (tx) => {
+      return await db.transaction(async tx => {
         return await transactionFn(tx);
       });
     } catch (error) {

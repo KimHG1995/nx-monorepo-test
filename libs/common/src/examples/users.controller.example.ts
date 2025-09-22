@@ -9,14 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import {
-  ApiCreatedResponse,
-  ApiDeletedResponse,
-  ApiEndpoint,
-  ApiPaginatedResponse,
-  ApiSuccessResponse,
-  ApiUpdatedResponse,
-} from '@nx-monorepo-test/common';
+import { ApiEndpoint } from '../decorators';
 
 // 예시 DTO들
 class CreateUserDto {
@@ -62,7 +55,6 @@ export class UsersController {
       { name: 'search', type: String, description: 'Search term' },
     ],
   })
-  @ApiPaginatedResponse('List of users', { $ref: '#/components/schemas/User' })
   async findAll(@Query() query: UserQueryDto): Promise<User[]> {
     return [];
   }
@@ -73,9 +65,6 @@ export class UsersController {
     description: 'Retrieve a specific user by their ID',
     responses: [{ status: 200, description: 'User found' }],
     params: [{ name: 'id', description: 'User ID', example: 1 }],
-  })
-  @ApiSuccessResponse(200, 'User details', {
-    $ref: '#/components/schemas/User',
   })
   async findOne(@Param('id') id: string): Promise<User> {
     return {} as User;
@@ -90,9 +79,6 @@ export class UsersController {
       description: 'User creation data',
       schema: { $ref: '#/components/schemas/CreateUserDto' },
     },
-  })
-  @ApiCreatedResponse('User created successfully', {
-    $ref: '#/components/schemas/User',
   })
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return {} as User;
@@ -109,9 +95,6 @@ export class UsersController {
       schema: { $ref: '#/components/schemas/UpdateUserDto' },
     },
   })
-  @ApiUpdatedResponse('User updated successfully', {
-    $ref: '#/components/schemas/User',
-  })
   async update(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto
@@ -126,6 +109,5 @@ export class UsersController {
     responses: [{ status: 200, description: 'User deleted successfully' }],
     params: [{ name: 'id', description: 'User ID', example: 1 }],
   })
-  @ApiDeletedResponse('User deleted successfully')
   async remove(@Param('id') id: string): Promise<void> {}
 }

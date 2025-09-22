@@ -11,7 +11,7 @@ export const createConnection = async () => {
     database: process.env.DATABASE_NAME || 'nx_monorepo_test',
   });
 
-  return drizzle(connection, { schema });
+  return drizzle(connection, { schema, mode: 'default' });
 };
 
 export type Database = ReturnType<typeof drizzle<typeof schema>>;
