@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {
+      "name": "nx-monorepo-test",
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "nx.enableLibraryImports": true,
+    "nx.showProjectGraph": true,
+    "nx.showProjectView": true,
+    "nx.showTaskExecution": true,
+    "nx.showAffectedProjects": true,
+    "nx.enableTelemetry": false,
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "typescript.suggest.autoImports": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit",
+    },
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.nx": true,
+    },
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "**/.nx": true,
+    },
+  },
+  "extensions": {
+    "recommendations": [
+      "nrwl.angular-console",
+      "ms-vscode.vscode-typescript-next",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "ms-vscode.vscode-json",
+    ],
+  },
+}

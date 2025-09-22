@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-monorepo-test/boilerplate": ["apps/boilerplate/src/index.ts"],
+      "@nx-monorepo-test/boilerplate/*": ["apps/boilerplate/src/*"],
+      "@nx-monorepo-test/database": ["libs/database/src/index.ts"],
+      "@nx-monorepo-test/database/*": ["libs/database/src/*"],
+      "@nx-monorepo-test/validation": ["libs/validation/src/index.ts"],
+      "@nx-monorepo-test/validation/*": ["libs/validation/src/*"],
+      "@nx-monorepo-test/shared": ["libs/shared/src/index.ts"],
+      "@nx-monorepo-test/shared/*": ["libs/shared/src/*"],
+      "@nx-monorepo-test/common": ["libs/common/src/index.ts"],
+      "@nx-monorepo-test/common/*": ["libs/common/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

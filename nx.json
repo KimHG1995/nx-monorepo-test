@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.preset.js"
+      ]
+    },
+    "lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json"
+      ]
+    }
+  },
+  "generators": {
+    "@nx/js:library": {
+      "js": true,
+      "publishable": false,
+      "buildable": true,
+      "strict": true,
+      "compiler": "tsc"
+    },
+    "@nx/node:application": {
+      "bundler": "webpack",
+      "framework": "none",
+      "docker": false,
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none",
+      "linter": "eslint"
+    }
+  },
+  "defaultProject": "boilerplate",
+  "cli": {
+    "defaultCollection": "@nx/js",
+    "packageManager": "npm"
+  }
+}
